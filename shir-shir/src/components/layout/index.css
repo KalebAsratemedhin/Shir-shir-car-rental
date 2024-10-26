@@ -1,6 +1,13 @@
 .layout{
-    width: 100%;
+    min-height: 100vh;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 
 }
-.outlet{
-}
+/* .outlet{
+    flex-grow: 1;
+
+} */

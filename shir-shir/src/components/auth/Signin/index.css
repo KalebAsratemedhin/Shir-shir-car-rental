@@ -1,0 +1,108 @@
+.container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .container .header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+   .text {
+    
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #d04c4c;
+    padding-bottom: 7px;
+}
+  
+  
+  .input {
+    margin-bottom: 20px;
+  }
+  
+  .inputs {
+    margin-bottom: 15px;
+  }
+  
+  .inputs label {
+    display: block;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .inputs div {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+  }
+  
+  .inputs div:focus-within {
+    border-color: #ff6b6b;
+  }
+  
+  .inputs input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .inputs input::placeholder {
+    color: #aaa;
+  }
+  
+  .inputs img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #e05a5a;
+  }
+  
+  button:active {
+    background-color: #d04c4c;
+  }
+  
+
+  .auth-link{
+    text-decoration: none;
+    color: gray;
+}
+
+  .auth-link .link{
+    color: #d04c4c;
+
+  }
