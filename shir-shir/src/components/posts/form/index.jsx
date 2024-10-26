@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './index.css';
+import useMutateWithForm from '../../../hooks/useMutationWIthFile';
+import Loading from '../../utils/Loading';
+import Error from '../../utils/Error';
+import Success from '../../utils/Success';
 
 const PostCarForm = () => {
   const [brand, setBrand] = useState('');
@@ -9,6 +13,12 @@ const PostCarForm = () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
+  const {mutate, loading, error, success} = useMutateWithForm('http://localhost:5000/posts', {
+    method: 'POST',
+    headers: {
+        'Authorization': "Bearer " + localStorage.getItem('accessToken')
+    }
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,20 +27,19 @@ const PostCarForm = () => {
     formData.append('brand', brand);
     formData.append('model', model);
     formData.append('age', age);
+    formData.append('count', count);
+
     formData.append('price', price);
     formData.append('description', description);
     if (photo) formData.append('photo', photo);
+    console.log('formData', formData)
 
-    fetch('http://localhost:5000/api/cars', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error posting car:', error));
+
+    mutate(formData)
   };
 
   return (
+    <div className='post-container'>
     <div className="form-container">
       <h2>Post a Car for Rent</h2>
       <form onSubmit={handleSubmit} className="post-car-form">
@@ -90,8 +99,13 @@ const PostCarForm = () => {
           required
         />
 
+        {loading && <Loading />}
+        {error && <Error message={error}/>}
+        {success && <Success />}
+
         <button type="submit" className="submit-btn">Post Car</button>
       </form>
+    </div>
     </div>
   );
 };

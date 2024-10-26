@@ -3,24 +3,27 @@ import React from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
 
-
-
-
-
-const Card = ({image}) => {
+const CarCard = ({car}) => {
   return (
     <div className='card'>
         <div className='image'>
-            <img src={image} alt="" />
+            <img src={'http://localhost:5000/' + car.photo} alt="" />
         </div>
         <div className='description'>
-            <p>CWagon</p>
-            <p>Wagons are similar to sedans but have an extended roofline and a hatch door at the rear instead of a trunk. Some, like the Subaru Outback or Audi A4 Allroad, have elevated ground clearance and some rugged body cladding to make them more like a sport-utility vehicle (SUV), but they are nonetheless closely related to sedans.</p>
-            <p>1230$</p>
-            <Link to='/rent-form' className='button'>rent</Link>
+            <p><strong>Brand:</strong> {car.brand}</p>
+            <p><strong>Model:</strong> {car.model}</p>
+            
+            <p><strong>Age:</strong> {car.age} years</p>
+            <p><strong>Count:</strong> {car.count}</p>
+            <p><strong>Price per Day:</strong> {car.price} ETB</p>
+            <p><strong>Description:</strong> {car.description}</p>
+            <button className="btn rent-btn">Rent Now</button>
+
         </div>
     </div>
   )
 }
 
-export default Card
+export default CarCard
+
+

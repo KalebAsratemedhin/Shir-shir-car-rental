@@ -18,15 +18,6 @@
 
 }
 
-.user-profile{
-    margin: 5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background-color: rgb(230, 220, 220);
-
-}
-
 .logo{
     color: #ff6b6b;
     padding-left: 10px;
@@ -50,6 +41,7 @@
     color: #ff6b6b;
 }
 
+
 .auth-buttons .signup{
     background-color: #ff6b6b;
     border-radius: 10px;
@@ -67,4 +59,32 @@
     background-color: white;
     border: solid #ff6b6b 1px;
     color: #ff6b6b;
+}
+
+.logged-in{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.logged-in .signout{
+    background-color: white;
+    border-radius: 10px;
+    border: solid #ff6b6b 1px;
+    color: #ff6b6b;
+    width: 100px;
+
+
+
+}
+
+.user-profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: rgb(230, 220, 220);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

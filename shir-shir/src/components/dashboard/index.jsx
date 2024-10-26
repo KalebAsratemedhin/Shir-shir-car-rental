@@ -1,6 +1,8 @@
 import React from 'react';
 import './index.css';
 
+import CarCard from '../posts/card';
+import useFetch from '../../hooks/useFetch';
 const Dashboard = () => {
 
   const carsPosted = 10;
@@ -11,6 +13,8 @@ const Dashboard = () => {
     { carModel: "Honda Accord", rentalDate: "2024-10-18", status: "Returned" },
     { carModel: "Ford Mustang", rentalDate: "2024-10-15", status: "Ongoing" },
   ];
+
+  const {loading, error, success, data} = useFetch('http://localhost:5000/posts/current-user')
 
   return (
     <div className="dashboard-container">
@@ -29,6 +33,8 @@ const Dashboard = () => {
           <p>Total Earnings</p>
         </div>
       </div>
+
+        
       
       <div className="active-rentals">
         <h2>Active Rentals</h2>
@@ -51,6 +57,15 @@ const Dashboard = () => {
           </tbody>
         </table>
       </div>
+
+      <h1>Your Cars</h1>
+
+    {data &&  
+        data.data.map((car) => {
+
+            return <CarCard key={car._id} car={car} />
+        })
+    }
     </div>
   );
 };

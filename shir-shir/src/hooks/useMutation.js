@@ -5,6 +5,7 @@ function useMutate(url, options = {}) {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [data, setData] = useState(null);
+  
 
 
   const mutate = async (payload) => {
@@ -15,8 +16,7 @@ function useMutate(url, options = {}) {
     try {
       const response = await fetch(url, {
         ...options,
-        
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
       const data = await response.json()
       if (!response.ok) {

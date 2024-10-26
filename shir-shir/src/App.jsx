@@ -10,6 +10,7 @@ import RentForm from './components/rent/rent-form';
 import Dashboard from './components/dashboard';
 import PostCarForm from './components/posts/form';
 import ProfilePage from './components/profile';
+import Protected from './Protected';
 
 function App() {
   return (
@@ -21,10 +22,14 @@ function App() {
           <Route path='/signin' element={<Signin />} />
           <Route path='' element={<Layout />}>
               <Route path='/' element={<Landing />} />
-              <Route path='/profile' element={<ProfilePage />} />
-              <Route path='/rent-form' element={<RentForm />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/post-form' element={<PostCarForm />} />
+              <Route path='' element={<Protected />}>
+
+                <Route path='/profile' element={<ProfilePage />} />
+                <Route path='/rent-form' element={<RentForm />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='/post' element={<PostCarForm />} />
+              </Route>
+              
 
 
 

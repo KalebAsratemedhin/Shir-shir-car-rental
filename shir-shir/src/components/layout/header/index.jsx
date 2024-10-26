@@ -1,10 +1,12 @@
 import React from 'react'
 import './index.css'
-import { Link } from 'react-router-dom';
+import AuthHeader from './AuthHeader.jsx'
+import { Link } from 'react-router-dom'
+import Navbar from '../Navbar/index.jsx'
 
 const Header = () => {
+  const token = localStorage.getItem('accessToken')
 
-  const user = null;
   return (
     <div className='header'>
         <div className='logo'>
@@ -12,24 +14,19 @@ const Header = () => {
 
         </div>
 
-        {/* <div className='search-bar'>
-            <input type="search" />
+        <Navbar />
 
-        </div> */}
-
+      { token ?
+        <AuthHeader /> :
+        <div className='auth-buttons'>
+          <Link to='/signup' className='signup'>signup</Link>
+          <Link to='/signin' className='signin'>signin</Link>
+  
+        </div>
+      }
 
         
-        {
-          user ?
-          <div className='user-profile'></div>
-          :
-          <div className='auth-buttons'>
-            <Link to='/signup' className='signup'>signup</Link>
-            <Link to='/signin' className='signin'>signin</Link>
-
-          </div>
-
-        }
+        
     </div>
   )
 }

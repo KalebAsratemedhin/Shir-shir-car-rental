@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
 
-function useFetch(url, options = {}) {
+function useFetch(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const token = localStorage.getItem('accessToken')
+  console.log('fetchin', url)
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(url, options);
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer ' + token,
+          },
+        });
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }
@@ -24,7 +32,7 @@ function useFetch(url, options = {}) {
     };
 
     fetchData();
-  }, [url, options]);
+  }, [url, token]);
 
   return { data, loading, error };
 }

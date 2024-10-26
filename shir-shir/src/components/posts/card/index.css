@@ -36,8 +36,29 @@
 
 .button:hover{
     box-shadow: 2px 2px 2px 2px rgb(209, 207, 207);
-    /* background-color: white;
+     background-color: white;
     color: black;
-    border: 1px solid gray; */
+    border: 1px solid gray; 
     
 }
+
+/* .car-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    display: flex;
+  }
+  
+  .car-image {
+    width: 150px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 16px;
+  }
+  
+  .car-details {
+    display: flex;
+    flex-direction: column;
+  }
+   */
