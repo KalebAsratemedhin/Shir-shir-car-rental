@@ -11,30 +11,31 @@ const Signin = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const navigate = useNavigate()
+    
 
   
     const handleClick = async () => {
-      const data = {username, password}
-      console.log(data, 'data')
+    //   const data = {username, password}
+    //   console.log(data, 'data')
   
-      const response = await fetch('http://localhost:5000/signin', {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
+    //   const response = await fetch('http://localhost:5000/signin', {
+    //     method: 'POST',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(data)
+    //   })
   
-      const json = await response.json()
-      localStorage.setItem('token', json.token)
+    //   const json = await response.json()
+    //   localStorage.setItem('token', json.token)
 
-      if(json.token){
-        navigate('/landing')
+    //   if(json.token){
+    //     navigate('/landing')
 
-      }
+    //   }
   
   
-      console.log("this is the signin response data", json)
+    //   console.log("this is the signin response data", json)
   
     }
   

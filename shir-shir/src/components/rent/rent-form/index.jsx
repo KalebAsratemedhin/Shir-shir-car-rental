@@ -1,48 +1,61 @@
-import { useState } from "react"
-const RentForm = () => {
-    
-  const [message, setmessage] = useState()
+import React, { useState } from 'react';
+import './index.css';
 
-  
-  const handleClick = async () => {
-    const data = {message}
+const RentCarForm = () => {
+  const [name, setName] = useState('');
+  const [contact, setContact] = useState('');
+  const [duration, setDuration] = useState('');
+  const [selectedCar, setSelectedCar] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const rentalData = { name, contact, duration, selectedCar };
 
-    const response = await fetch('http://localhost:5000/rent', {
+    fetch('http://localhost:5000/api/rentals', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(rentalData),
     })
-
-    const json = await response.json()
-
-    console.log("this is the rent response data", json)
-
-  }
+      .then(response => response.json())
+      .then(data => console.log('Rental confirmed:', data))
+      .catch(error => console.error('Error renting car:', error));
+  };
 
   return (
-    <div className='container'>
-        <div className='header'>
-            <div className='text'>Rent Car</div>
-        
-        </div>
-       
-        <div className='inputs'>
-            <label htmlFor="message">Message</label>
-            <div>
-                 <textarea id='message' value={message}  onChange={(e) => setmessage(e.target.value) } type="text"/>
-            </div>
-        </div>
-        
+    <div className="rental-form-container">
+      <h2>Rent a Car</h2>
+      <form onSubmit={handleSubmit} className="rent-car-form">
+        <label>Full Name</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-        <button onClick={handleClick}>
-            Submit
-        </button>
-    
+        <label>Contact Information</label>
+        <input
+          type="text"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          required
+        />
+
+        <label>Rental Duration (Days)</label>
+        <input
+          type="number"
+          value={duration}
+          onChange={(e) => setDuration(e.target.value)}
+          required
+        />
+
+
+        <button type="submit" className="submit-btn">Confirm Rental</button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default RentForm
+export default RentCarForm;

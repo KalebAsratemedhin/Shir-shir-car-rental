@@ -1,5 +1,5 @@
-/* Rental Form Container */
-.rental-form-container {
+/* Form Container */
+.form-container {
     max-width: 500px;
     margin: 0 auto;
     padding: 30px;
@@ -8,22 +8,22 @@
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   }
   
-  .rental-form-container h2 {
+  .form-container h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
   }
   
   /* Form Elements */
-  .rent-car-form label {
+  .post-car-form label {
     font-weight: bold;
     color: #555;
     display: block;
     margin-bottom: 5px;
   }
   
-  .rent-car-form input,
-  .rent-car-form select {
+  .post-car-form input,
+  .post-car-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -34,8 +34,8 @@
     transition: border-color 0.3s;
   }
   
-  .rent-car-form input:focus,
-  .rent-car-form select:focus {
+  .post-car-form input:focus,
+  .post-car-form textarea:focus {
     border-color: #ff6b6b;
   }
   
