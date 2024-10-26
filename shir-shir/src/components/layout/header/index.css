@@ -1,0 +1,68 @@
+.header{
+    box-shadow: 1px 1px 1px 1px rgba(231, 229, 229, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 5px 0px 5px 0px; */
+
+}
+
+.search-bar input{
+    /* width: 200px; */
+    /* border-radius: 10px; */
+    /* background-color: rgb(230, 220, 220); */
+    /* border: 1px solid gray; */
+    /* padding: 8px; */
+
+}
+
+.user-profile{
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: rgb(230, 220, 220);
+
+}
+
+.logo{
+    color: #ff6b6b;
+    padding-left: 10px;
+}
+
+.auth-buttons{
+    padding: 5px;
+    display: flex;
+    gap: 8px;
+}
+
+.auth-buttons a{
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+}
+
+.auth-buttons .signin{
+    background-color: white;
+    border-radius: 10px;
+    border: solid #ff6b6b 1px;
+    color: #ff6b6b;
+}
+
+.auth-buttons .signup{
+    background-color: #ff6b6b;
+    border-radius: 10px;
+    border: solid white 1px;
+    color: white;
+}
+
+.auth-buttons .signin:hover{
+    background-color: #ff6b6b;
+    border: solid white 1px;
+    color: white;
+}
+
+.auth-buttons .signup:hover{
+    background-color: white;
+    border: solid #ff6b6b 1px;
+    color: #ff6b6b;
+}

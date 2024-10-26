@@ -1,16 +1,203 @@
-.car-show{
-    width: 1200px;
-    height: auto;
-    background: rgb(221, 215, 215);
+.landing-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .landing-header {
+    background: #f5f5f5;
+    padding: 20px;
+
+  }
+  
+  .landing-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .landing-header p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .landing-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .primary-btn {
+    background-color: #ff6b6b;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .secondary-btn {
+    background-color: #333;
+    color: white;
+  }
+  
+
+.home-container {
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .search-filter {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .search-bar {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .filter-dropdown {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .car-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-
-    padding-left: 10px;
-    padding-top: 7px;
-    margin-bottom: 20px;
-}
-
-.landing{
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .car-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
+  }
+  
+  .car-image {
     width: 100%;
-}
+    border-radius: 6px;
+  }
+  
+  .rent-btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+
+/* Featured Cars Section */
+.home-container {
+    display: wrap;
+    flex-wrap: wrap;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .home-container h2 {
+    color: #333;
+  }
+  
+  .search-filter {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .search-bar, .filter-dropdown {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .car-card {
+    background: rgb(238, 233, 233);
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .car-image {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .rent-btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: #f5f5f5;
+    text-align: center;
+  }
+  
+  .services-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .service-card {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .service-card p {
+    color: #555;
+    font-size: 0.9rem;
+  }

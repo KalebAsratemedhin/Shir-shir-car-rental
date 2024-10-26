@@ -1,50 +1,76 @@
-import  './index.css'
-import Card from '../posts/card'
-import car1 from '../assets/car-1.jfif'
-import car2 from '../assets/car-2.jfif'
-import car3 from '../assets/car-3.jfif'
-import car4 from '../assets/car-4.jfif'
-import car5 from '../assets/car-5.jfif'
+import './index.css';
+import { Link } from 'react-router-dom';
 
-
-const cars = [car1, car2, car3, car4, car5]
-
-const Landing = () => {
+function LandingPage() {
   return (
-    <div className='landing'>
-    <div className="car-show ">
-        <h1>cars for rent</h1>
+    <div className="landing-container">
+      <header className="landing-header">
+        <h1>Welcome to Shir Shir Car Rentals</h1>
+        <p>Rent a car, whenever and wherever you need it.</p>
+        <div className="landing-buttons">
+          <Link to="/signup" className="btn primary-btn">Get Started</Link>
+        </div>
+      </header>
+
+      <section className="home-container">
+        <h2>Available Cars for Rent</h2>
+        <div className="search-filter">
+          <input type="text" placeholder="Search cars..." className="search-bar" />
+          <select className="filter-dropdown">
+            <option value="">Filter by Type</option>
+            <option value="SUV">SUV</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Truck">Truck</option>
+          </select>
+        </div>
+        <div className="car-list">
+          <div className="car-card">
+            <img src="car1.jpg" alt="Car Model 1" className="car-image" />
+            <h3>Car Model 1</h3>
+            <p>$50/day</p>
+            <button className="btn rent-btn">Rent Now</button>
+          </div>
+          <div className="car-card">
+            <img src="car2.jpg" alt="Car Model 2" className="car-image" />
+            <h3>Car Model 2</h3>
+            <p>$60/day</p>
+            <button className="btn rent-btn">Rent Now</button>
+          </div>
+          <div className="car-card">
+            <img src="car3.jpg" alt="Car Model 3" className="car-image" />
+            <h3>Car Model 3</h3>
+            <p>$55/day</p>
+            <button className="btn rent-btn">Rent Now</button>
+          </div>
+          {/* Add more car cards as needed */}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services-container">
+        <h2>Our Services</h2>
+        <div className="services-list">
+          <div className="service-card">
+            <h3>24/7 Customer Support</h3>
+            <p>We provide round-the-clock support for all your rental needs.</p>
+          </div>
+          <div className="service-card">
+            <h3>Flexible Rental Periods</h3>
+            <p>Rent for a day, a week, or even a month with flexible options.</p>
+          </div>
+          <div className="service-card">
+            <h3>Wide Range of Vehicles</h3>
+            <p>Choose from economy cars, SUVs, luxury vehicles, and more.</p>
+          </div>
+          <div className="service-card">
+            <h3>Affordable Rates</h3>
+            <p>Enjoy competitive pricing with no hidden fees.</p>
+          </div>
+        </div>
+      </section>
     </div>
-    <h1>Your posts</h1>
-    <div className="car-show cars-posted">
-        
-
-        {
-            cars.map((car) => {
-                return <Card image={car} /> 
-            })
-            
-        }
-
-
-
-    </div>
-
-    <div className="car-show cars-posted">
-        <h1>Rent History</h1>
-        {
-            cars.map((car) => {
-                return <Card image={car} /> 
-            })
-            
-        }
-
-    </div>
-
-
-
-    </div>
-  )
+  );
 }
 
-export default Landing
+export default LandingPage;
+

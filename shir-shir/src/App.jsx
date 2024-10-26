@@ -12,12 +12,13 @@ import RentForm from './components/rent/rent-form';
 
 function App() {
   return (
-    <div className='home-page'>
+    <div className=''>
 
       <Router>
         <Routes>
           <Route path='/signup' element={<Signup />} />
           <Route path='/signin' element={<Signin />} />
+          <Route path='/' element={<Welcome />} />
           <Route path='' element={<Layout />}>
               <Route path='/landing' element={<Landing />} />
               <Route path='/rent-form' element={<RentForm />} />
@@ -25,7 +26,7 @@ function App() {
           </Route>
           
 
-          <Route path='/' element={<Welcome />} />
+          
 
 
         </Routes>
