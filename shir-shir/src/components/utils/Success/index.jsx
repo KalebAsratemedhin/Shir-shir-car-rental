@@ -1,5 +1,5 @@
 import React from 'react';
-import './Success.css';
+import './index.css';
 
 const Success = ({ message }) => {
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './index.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,11 @@ import email_icon from '../../assets/email.png'
 import password_icon from '../../assets/password.png'
 import user_icon from '../../assets/person.png'
 import { useNavigate } from 'react-router-dom';
+import useMutate from '../../../hooks/useMutation';
+import Loading from '../../utils/Loading';
+import Success from '../../utils/Success';
+import Error from '../../utils/Error';
+
 
 const Signup = () => {
 
@@ -15,32 +20,29 @@ const Signup = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const navigate = useNavigate()
+  const {mutate, loading, error, success, data} = useMutate('http://localhost:5000/signup', { 
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json",
+      }
+  })
 
+  useEffect(() => {
+    if(success){
+        localStorage.setItem('accessToken', data.accessToken )
+        localStorage.setItem('username', data.data.username )
 
+        
+    }
+
+    if(localStorage.getItem('accessToken')){
+        navigate('/dashboard')
+    }
+
+  }, [success])
 
   const handleClick = async () => {
-    // const data = {username, email, password}
-    // console.log(data, 'data')
-
-    // const response = await fetch('http://localhost:5000/signup', {
-    //   method: 'POST',
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-
-    // const json = await response.json()
-    // localStorage.setItem('token', json.token)
-
-    // if (json.token){
-    //   navigate('/landing')
-      
-    // }
-
-
-    // console.log("this is the signup response data", json)
-
+    mutate({username, email, password})
   }
 
   return (
@@ -77,6 +79,11 @@ const Signup = () => {
        
 
         </div>
+
+        {loading && <Loading />}
+        {error && <Error message={error}/>}
+        {success && <Success />}
+
 
       <button onClick={handleClick}>
         Submit

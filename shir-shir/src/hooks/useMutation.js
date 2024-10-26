@@ -4,6 +4,8 @@ function useMutate(url, options = {}) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [data, setData] = useState(null);
+
 
   const mutate = async (payload) => {
     setLoading(true);
@@ -13,12 +15,16 @@ function useMutate(url, options = {}) {
     try {
       const response = await fetch(url, {
         ...options,
+        
         body: JSON.stringify(payload),
       });
+      const data = await response.json()
       if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
+        throw new Error(`Error: ${data.message}`);
       }
       setSuccess(true);
+      setData(data)
+
     } catch (error) {
       setError(error.message);
     } finally {
@@ -26,7 +32,7 @@ function useMutate(url, options = {}) {
     }
   };
 
-  return { mutate, loading, error, success };
+  return { mutate, loading, error, success, data };
 }
 
 export default useMutate;
