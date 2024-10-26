@@ -1,0 +1,16 @@
+.car-show{
+    width: 1200px;
+    height: auto;
+    background: rgb(221, 215, 215);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    padding-left: 10px;
+    padding-top: 7px;
+    margin-bottom: 20px;
+}
+
+.landing{
+    width: 100%;
+}

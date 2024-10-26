@@ -1,0 +1,26 @@
+.container {
+    background-color: green;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.auth-links{
+    padding: 10px;
+    border: 1px solid purple;
+    border-radius: 5px;
+    text-decoration: none;
+    color: purple;
+}
+
+.auth-links:hover{
+    background-color: purple;
+    color: white;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+
+}
