@@ -57,4 +57,19 @@ const getAllCars = async (req, res) => {
       res.status(500).json({ message: 'Error fetching cars', error: error.message });
     }
 };
-module.exports = { postCar, getCurrentUserCars, getAllCars};
+
+const getOneCar = async (req, res) => {
+  try {
+    console.log('req a car', req.params)
+
+    const {carId} = req.params
+    const car = await Car.findById(carId);
+
+    console.log('cars', car)
+
+    res.status(201).json({ message: 'Cars fetched successfully', data: car });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching cars', error: error.message });
+  }
+};
+module.exports = { postCar, getCurrentUserCars, getAllCars, getOneCar};

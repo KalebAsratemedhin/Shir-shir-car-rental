@@ -32,8 +32,11 @@ const signup =  async(req, res) => {
 
             expiresIn: '2h'
         })
+
+        console.log("new user ", newUser, token)
+
         
-        res.status(201).json({message: "User created successfully", data: user.toObject() , accessToken: token})
+        res.status(201).json({message: "User created successfully", data: newUser.toObject() , accessToken: token})
 
         
     } catch (error) {
