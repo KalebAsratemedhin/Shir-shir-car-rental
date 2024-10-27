@@ -1,31 +1,69 @@
 import React, { useState } from 'react';
 import './index.css';
+import { useParams } from 'react-router-dom';
+import useFetch from '../../../hooks/useFetch';
+import useMutate from '../../../hooks/useMutation';
+import CarCard from '../../posts/card';
+import Loading from '../../utils/Loading';
+import Error from '../../utils/Error';
 
 const RentCarForm = () => {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [duration, setDuration] = useState('');
-  const [selectedCar, setSelectedCar] = useState('');
+  const {carId} = useParams()
+
+  console.log('carId', carId)
+
+  const {loading: carLoading, error: carError, success: carSuccess, data: car} = useFetch(`http://localhost:5000/posts/${carId}`)
+
+
+  const {mutate, loading, error, success} = useMutate('http://localhost:5000/rents/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Bearer " + localStorage.getItem('accessToken')
+    }
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const rentalData = { name, contact, duration, selectedCar };
-
-    fetch('http://localhost:5000/api/rentals', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(rentalData),
-    })
-      .then(response => response.json())
-      .then(data => console.log('Rental confirmed:', data))
-      .catch(error => console.error('Error renting car:', error));
+    mutate({ name, contact, duration, carId })
+    
   };
 
   return (
     <div className="rental-form-container">
+
       <h2>Rent a Car</h2>
+
+      <div>
+        {carLoading && <Loading />}
+        {carError && <Error message={carError} />}
+        {car && 
+
+        <div>
+          <div className='image'>
+            <img src={'http://localhost:5000/' + car.data.photo} alt="" />
+          </div>
+          <div className='description'>
+              <p><strong>Brand:</strong> {car.data.brand}</p>
+              <p><strong>Model:</strong> {car.data.model}</p>
+              
+              <p><strong>Age:</strong> {car.data.age} years</p>
+              <p><strong>Count:</strong> {car.data.count}</p>
+              <p><strong>Price per Day:</strong> {car.data.price} ETB</p>
+              <p><strong>Description:</strong> {car.data.description}</p>
+
+          </div>
+
+        </div>
+        }
+
+
+        
+      </div>
+
       <form onSubmit={handleSubmit} className="rent-car-form">
         <label>Full Name</label>
         <input

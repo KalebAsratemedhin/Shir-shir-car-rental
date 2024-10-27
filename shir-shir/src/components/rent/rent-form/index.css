@@ -1,7 +1,6 @@
-/* Rental Form Container */
 .rental-form-container {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 30px;
     background: #f9f9f9;
     border-radius: 10px;

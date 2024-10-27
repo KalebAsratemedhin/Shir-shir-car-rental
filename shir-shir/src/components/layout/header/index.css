@@ -70,12 +70,12 @@
 .logged-in .signout{
     background-color: white;
     border-radius: 10px;
-    border: solid #ff6b6b 1px;
     color: #ff6b6b;
     width: 100px;
+}
 
-
-
+.logged-in .signout:hover{
+    color: #f85151;
 }
 
 .user-profile{

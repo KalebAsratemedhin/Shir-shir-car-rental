@@ -11,6 +11,7 @@ import Dashboard from './components/dashboard';
 import PostCarForm from './components/posts/form';
 import ProfilePage from './components/profile';
 import Protected from './Protected';
+import CarsList from './components/rent';
 
 function App() {
   return (
@@ -20,12 +21,14 @@ function App() {
         <Routes>
           <Route path='/signup' element={<Signup />} />
           <Route path='/signin' element={<Signin />} />
-          <Route path='' element={<Layout />}>
+          <Route element={<Layout />}>
               <Route path='/' element={<Landing />} />
-              <Route path='' element={<Protected />}>
+              <Route element={<Protected />}>
 
                 <Route path='/profile' element={<ProfilePage />} />
-                <Route path='/rent-form' element={<RentForm />} />
+                <Route path="/rent/:carId" element={<RentForm />} />
+                <Route path="/rent" element={<CarsList />} />
+
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/post' element={<PostCarForm />} />
               </Route>

@@ -11,7 +11,7 @@ import Success from '../../utils/Success';
 
 const Signin = () => {
   
-  const [username, setUsername] = useState('');  // Initialize with empty strings
+  const [username, setUsername] = useState('');  
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 

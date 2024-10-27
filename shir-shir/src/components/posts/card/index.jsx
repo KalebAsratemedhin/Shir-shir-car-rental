@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './index.css'
-import { Link } from 'react-router-dom'
+import { Link,  } from 'react-router-dom'
 
 const CarCard = ({car}) => {
   return (
@@ -17,7 +17,7 @@ const CarCard = ({car}) => {
             <p><strong>Count:</strong> {car.count}</p>
             <p><strong>Price per Day:</strong> {car.price} ETB</p>
             <p><strong>Description:</strong> {car.description}</p>
-            <button className="btn rent-btn">Rent Now</button>
+            <Link to={`/rent/${car._id}`} className="btn rent-btn">Rent Now</Link>
 
         </div>
     </div>

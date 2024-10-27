@@ -21,7 +21,10 @@ const Signup = () => {
   const [password, setPassword] = useState()
   const navigate = useNavigate()
   const {mutate, loading, error, success, data} = useMutate('http://localhost:5000/auth/signup', { 
-    method: 'POST'
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    }
   })
 
   useEffect(() => {
@@ -39,12 +42,7 @@ const Signup = () => {
   }, [success])
 
   const handleClick = async () => {
-    const formData = new FormData()
-    formData.append('username', username)
-    formData.append('email', email)
-    formData.append('password', password)
-
-    mutate(formData)
+    mutate({username, email, password})
   }
 
   return (

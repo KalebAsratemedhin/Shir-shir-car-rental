@@ -1,6 +1,6 @@
 
 .card{
-    width: 300px;
+    width: 350px;
     display: flex;
 
     flex-direction: column;
@@ -22,43 +22,51 @@
 
 
 .description{
-    padding: 10px;
-    
-}
-
-.button{
-    background-color: gray;
-    border-radius: 10px;
-    border: none;
+    padding: 20px;
+    flex-grow: 1;
+    text-align: start;
+    background-color: rgb(138, 135, 135);
     color: white;
-    padding: 10px 20px;
-}
+    border-radius: 0 0 10px 10px;
 
-.button:hover{
-    box-shadow: 2px 2px 2px 2px rgb(209, 207, 207);
-     background-color: white;
-    color: black;
-    border: 1px solid gray; 
+
     
 }
 
-/* .car-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px 0;
+
+/* .car-list {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  } */
+  
+  .car-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
   }
   
   .car-image {
-    width: 150px;
-    height: 100px;
-    border-radius: 8px;
-    margin-right: 16px;
+    width: 100%;
+    border-radius: 6px;
   }
   
-  .car-details {
-    display: flex;
-    flex-direction: column;
+  .rent-btn {
+    background-color: #ff6b6b;
+    text-decoration: none;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
-   */
+
+  .rent-btn:hover{
+    background-color: #f04c4c;
+    cursor: pointer;
+  }
+  
