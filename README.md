@@ -1,7 +1,7 @@
 # Shir-shir-car-rental
 
 
-![Logo](screenshots/logo.png)
+![Logo](shir-shir/public/shirshir-logo.jpeg)
 
 ## Table of Contents
 - [Introduction](#introduction)
