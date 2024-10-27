@@ -23,7 +23,6 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose')
 const User = require('./models/user')
 
-// const mongoURI = 'mongodb+srv://kirubelassefa386:slide7464@cluster0.x2tde.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 const mongoURI = 'mongodb://localhost:27017/ShirShir'
  
 const connectToDB = async() => {
