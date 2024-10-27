@@ -29,7 +29,7 @@ const createRent = async (req, res) => {
 
 const approveRent = async (req, res) => {
     try {
-      const { rentId } = req.params;
+      const { rentId } = req.body;
       const { username } = req.user; 
   
       const rent = await Rent.findById(rentId);
@@ -56,7 +56,7 @@ const approveRent = async (req, res) => {
   
   const confirmReturn = async (req, res) => {
     try {
-      const { rentId } = req.params;
+      const { rentId } = req.body;
       const { username } = req.user; 
 
       const rent = await Rent.findById(rentId);
@@ -81,18 +81,24 @@ const approveRent = async (req, res) => {
     }
   };
   
-
-const getCurrentUserRents = async (req, res) => {
-  try {
-    const { username } = req.user;
-
-    const rents = await Rent.find({ rentee: username }).populate('car');
-    res.status(200).json({ message: 'User rents retrieved successfully', data: rents });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to retrieve user rents' });
-  }
-};
+  const getCurrentUserRents = async (req, res) => {
+    try {
+      const { username } = req.user;
+  
+      const rents = await Rent.find({
+        $or: [
+          { rentee: username },  
+          { renter: username }   
+        ]
+      }).populate('car'); 
+  
+      res.status(200).json({ message: 'User rents retrieved successfully', data: rents });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to retrieve user rents' });
+    }
+  };
+  
 
 const getRentRequests = async (req, res) => {
   try {

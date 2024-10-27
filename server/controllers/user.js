@@ -1,4 +1,25 @@
+const Car = require('../models/car')
+const Rent = require('../models/rent')
 const User = require('../models/user')
+
+
+const getUserSummary = async(req, res) => {
+    try {
+        const {username} = req.user
+
+        const postCount = await Car.countDocuments({username})
+        const rentedCount = await Rent.countDocuments({rentee: username})
+
+        let income = 0
+
+        res.status(200).json({message: "Success.", data: {posts: postCount, income, rented: rentedCount} })
+
+        
+    } catch (error) {
+        res.status(500).json({message: "Internal server error."})
+        
+    }
+}
 
 const getCurrentUser =  async(req, res) => {
     try {
@@ -22,47 +43,7 @@ const getCurrentUser =  async(req, res) => {
 }
 
 
-// const updateUser =  async(req, res) => {
-//     try {
-
-//         if(!req.body.username || !req.body.password ){
-//             return res.status(400).json({message: 'Invalid format'})
-//         }
-//         const {username, password} = req.body
-//         const user = await User.findOne({
-//             username: username
-//         })
-
-//         console.log("user", user)
-
-//         if(!user){
-//             return res.status(404).json({message: "The user is not found."})
-//         }
-
-//         await bcrypt.compare(password, user.password, (err, result) => {
-//             if(result){
-//                 const token = jwt.sign({username}, "jdfqslthiogdfhslvqfoachzvlshl", {
-//                     expiresIn: '2h'
-//                 })
-//                 console.log('sign in success',{message: "Successfully signed in.", accessToken: token, data: user.toObject()  } )
-
-//                  return res.status(200).json({message: "Successfully signed in.", accessToken: token, data: user.toObject()  })
-//             } 
-//             if (err){
-//                 return res.status(400).json({message: "Wrong password"})
-//             }
-//         })
-
-        
-        
-//     } catch (error) {
-//         res.status(500).json({message: "Internal server error."})
-        
-//     }
-
-// }
-
 module.exports = {
     getCurrentUser,
-    // updateUser
+    getUserSummary
 }
