@@ -1,17 +1,12 @@
 # Shir-shir-car-rental
 
 
-![Logo](shir-shir/public/shirshir-logo.jpeg)
-
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 This is a car rental application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The application allows users to rent cars, manage rentals, and track earnings. It provides a user-friendly interface for both renters and rentees.
