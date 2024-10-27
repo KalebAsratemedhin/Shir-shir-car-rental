@@ -44,6 +44,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/user'))
 app.use('/posts', require('./routes/post'))
+// app.use('/rents', require('./routes/rent'))
 
 
 

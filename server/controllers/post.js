@@ -44,4 +44,17 @@ const getCurrentUserCars = async (req, res) => {
       res.status(500).json({ message: 'Error posting car', error: error.message });
     }
   };
-module.exports = { postCar, getCurrentUserCars};
+
+const getAllCars = async (req, res) => {
+    try {
+      
+      const cars = await Car.find();
+  
+      console.log('cars', cars)
+  
+      res.status(201).json({ message: 'Cars fetched successfully', data: cars });
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching cars', error: error.message });
+    }
+};
+module.exports = { postCar, getCurrentUserCars, getAllCars};
