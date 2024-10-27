@@ -40,7 +40,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/KalebAsratemedhin/shir-shir.git
+   git clone https://github.com/KalebAsratemedhin/Shir-shir-car-rental.git
    cd shir-shir
    npm install
    npm run dev
